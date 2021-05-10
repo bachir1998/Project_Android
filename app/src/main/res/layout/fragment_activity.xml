@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:id="@+id/image_connect"
+        android:layout_width="500dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/parcours"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create new activity"
+        android:textColor="#0d6e6a"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:letterSpacing="0.03"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Titre : "
+            android:layout_marginLeft="150dp"
+            android:fontFamily="cursive"
+            android:textColor="#0d6e6a"
+            android:layout_marginTop="30dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:letterSpacing="0.03"/>
+        <EditText
+            android:id="@+id/new_titre_activity"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:fontFamily="cursive"
+            android:background="@drawable/border"
+            android:text="Titre de l'activité"
+            android:layout_marginLeft="10dp"
+            android:textColor="#0d6e6a"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginTop="7dp"
+            android:paddingLeft="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description : "
+            android:layout_marginLeft="120dp"
+            android:fontFamily="cursive"
+            android:textColor="#0d6e6a"
+            android:layout_marginTop="10dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:letterSpacing="0.03"/>
+        <EditText
+            android:id="@+id/new_description_activity"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:fontFamily="cursive"
+            android:background="@drawable/border"
+            android:text="Description de l'activité"
+            android:layout_marginLeft="10dp"
+            android:textColor="#0d6e6a"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginTop="7dp"
+            android:paddingLeft="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Durée : "
+            android:layout_marginLeft="120dp"
+            android:fontFamily="cursive"
+            android:textColor="#0d6e6a"
+            android:layout_marginTop="10dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:letterSpacing="0.03"/>
+        <EditText
+            android:id="@+id/new_description_parcours"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:fontFamily="cursive"
+            android:background="@drawable/border"
+            android:text="Duréé de l'activité"
+            android:layout_marginLeft="10dp"
+            android:textColor="#0d6e6a"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_marginTop="7dp"
+            android:paddingLeft="20dp"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_creer_activity"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/design_button"
+        android:text="créer  activité"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="25dp"/>
+
+
+
+
+
+</LinearLayout>

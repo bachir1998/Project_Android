@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/welcome">
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="5dp"
+        android:layout_margin="5dp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="5dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Médecin"
+            android:textSize="30sp"
+            android:fontFamily="cursive"
+            android:textStyle="bold"
+            android:padding="25dp"
+            />
+
+            <Button
+                android:id="@+id/se_connecter_med"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:padding="10dp"
+                android:layout_marginLeft="5dp"
+                android:backgroundTint="#2C75AF"
+                android:text="Se connecter" />
+
+
+            <Button
+                android:id="@+id/sincrire_med"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="100dp"
+                android:layout_marginBottom="53dp"
+                android:layout_marginLeft="5dp"
+                android:padding="10dp"
+                android:backgroundTint="#2C75AF"
+                android:text="S'Inscrire" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/doctor"
+                android:layout_alignParentRight="true"
+
+                />
+
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="5dp"
+        android:layout_margin="5dp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="5dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Patient"
+                android:textSize="30sp"
+                android:fontFamily="cursive"
+                android:textStyle="bold"
+                android:padding="25dp"
+                />
+
+            <Button
+                android:id="@+id/seconnecter_patient"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:padding="10dp"
+                android:layout_marginLeft="5dp"
+                android:backgroundTint="#2C75AF"
+                android:text="Se connecter" />
+
+
+            <Button
+                android:id="@+id/sincrire_patient"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="100dp"
+                android:layout_marginBottom="53dp"
+                android:padding="10dp"
+                android:layout_marginLeft="5dp"
+                android:backgroundTint="#2C75AF"
+                android:text="S'Inscrire" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/patient"
+                android:layout_alignParentRight="true"
+
+                />
+
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="5dp"
+        android:layout_margin="5dp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="5dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intervenant"
+                android:textSize="30sp"
+                android:fontFamily="cursive"
+                android:textStyle="bold"
+                android:padding="25dp"
+                />
+
+            <Button
+                android:id="@+id/seconnecter_intervenant"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:padding="10dp"
+                android:layout_marginLeft="5dp"
+                android:backgroundTint="#2C75AF"
+                android:text="Se connecter" />
+
+
+            <Button
+                android:id="@+id/sincrire_intervenant"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="100dp"
+                android:layout_marginBottom="53dp"
+                android:padding="10dp"
+                android:layout_marginLeft="5dp"
+                android:backgroundTint="#2C75AF"
+                android:text="S'Inscrire" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/intervenant"
+                android:layout_alignParentRight="true"
+
+                />
+
+
+
+        </RelativeLayout>
+
+
+      </androidx.cardview.widget.CardView>
+  </LinearLayout>
+</ScrollView>

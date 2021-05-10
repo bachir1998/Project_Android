@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/parcours" android:title="Parcours" android:icon="@drawable/ic_dashboard"/>
+    <item android:id="@+id/seance" android:title="Séance" android:icon="@drawable/ic_even"/>
+    <!--<item android:id="@+id/search" android:title="Search" android:icon="@drawable/ic_search"/>-->
+    <!--<item android:id="@+id/settings" android:title="Settings" android:icon="@drawable/ic_setting"/>-->
+    <item android:id="@+id/statistic" android:title="Statistiques" android:icon="@drawable/ic_trending"/>
+    <item android:id="@+id/logout" android:title="Logout" android:icon="@drawable/ic_exit"/>
+
+</menu>

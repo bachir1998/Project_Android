@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Project_Android</string>
+    <string name="ouvrir">Ouvrir</string>
+    <string name="fermer">Femer</string>
+</resources>
