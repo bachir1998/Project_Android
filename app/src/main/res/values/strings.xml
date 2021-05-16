@@ -2,4 +2,45 @@
     <string name="app_name">Project_Android</string>
     <string name="ouvrir">Ouvrir</string>
     <string name="fermer">Femer</string>
+
+    <string-array name="Spinner_items">
+        <item>Medecin 1</item>
+        <item>Medecin 2</item>
+        <item>Medecin 3</item>
+        <item>Medecin 4</item>
+        <item>Medecin 5</item>
+    </string-array>
+
+    <string-array name="Spinner_items_patient">
+        <item>Patient 1</item>
+        <item>Patient 2</item>
+        <item>Patient 3</item>
+        <item>Patient 4</item>
+        <item>Patient 5</item>
+    </string-array>
+
+    <string-array name="Spinner_items_intervenant">
+        <item>Intervenant 1</item>
+        <item>Intervenant 2</item>
+        <item>Intervenant 3</item>
+        <item>Intervenant 4</item>
+        <item>Intervenant 5</item>
+    </string-array>
+
+    <string-array name="Spinner_item_activity">
+        <item>Activity 1</item>
+        <item>Activity 2</item>
+        <item>Activity 3</item>
+        <item>Activity 4</item>
+        <item>Activity 5</item>
+    </string-array>
+
+
+    <string-array name="Spinner_item_structure">
+        <item>Structure 1</item>
+        <item>Structure 2</item>
+        <item>Structure 3</item>
+        <item>Structure 4</item>
+        <item>Structure 5</item>
+    </string-array>
 </resources>

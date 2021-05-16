@@ -10,7 +10,7 @@
         android:layout_marginTop="10dp"
         android:id="@+id/image_connect"
         android:layout_width="500dp"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:src="@drawable/parcours"/>
 
     <TextView
@@ -130,6 +130,7 @@
             android:textStyle="bold"
             android:letterSpacing="0.03"/>
         <Spinner
+            android:entries="@array/Spinner_items_patient"
             android:id="@+id/choisir_patient"
             android:layout_width="350dp"
             android:layout_height="50dp"
@@ -141,6 +142,32 @@
     </LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choisir un intervenant : "
+        android:layout_marginLeft="90dp"
+        android:fontFamily="cursive"
+        android:textColor="#0d6e6a"
+        android:layout_marginTop="10dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:letterSpacing="0.03"/>
+    <Spinner
+        android:entries="@array/Spinner_items_intervenant"
+        android:id="@+id/choisir_intervenant"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="0.4">
+    </Spinner>
+</LinearLayout>
+
+
     <Button
         android:id="@+id/btn_creer"
         android:layout_width="350dp"
@@ -150,7 +177,7 @@
         android:textSize="18dp"
         android:textStyle="bold"
         android:textColor="#FFF"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="60dp"
         android:layout_marginTop="25dp"/>
 
 

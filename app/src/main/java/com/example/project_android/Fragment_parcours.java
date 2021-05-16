@@ -4,17 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-public class Fragment_parcours extends DialogFragment
+public class Fragment_parcours extends DialogFragment implements AdapterView.OnItemSelectedListener
 {
     private EditText titre, description, categorie;
-    private Spinner spinner;
+    private Spinner spinner_patient, spinner_intervenant;
     private Button creer;
     public Fragment_parcours() {
         // le fragment est créé par la méthode newInstance
@@ -48,8 +50,11 @@ public class Fragment_parcours extends DialogFragment
         titre = view.findViewById(R.id.titre_parcours);
         categorie = view.findViewById(R.id.categorie_parcours);
         description = view.findViewById(R.id.description_parcours);
-        spinner = view.findViewById(R.id.choisir_patient);
+        spinner_patient = view.findViewById(R.id.choisir_patient);
+        spinner_intervenant = view.findViewById(R.id.choisir_intervenant);
         creer = view.findViewById(R.id.btn_creer);
+        spinner_patient.setOnItemSelectedListener(this);
+        spinner_intervenant.setOnItemSelectedListener(this);
 
 
 
@@ -57,4 +62,14 @@ public class Fragment_parcours extends DialogFragment
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        Toast.makeText(getContext(),adapterView.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }

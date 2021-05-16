@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="350dp"
-    android:layout_height="300dp"
+    android:layout_height="310dp"
     android:layout_gravity="center"
     app:cardCornerRadius="5dp"
     android:layout_margin="5dp"
@@ -23,7 +23,7 @@
                 android:id="@+id/img_seance"
                 android:layout_marginTop="6dp"
                 android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_height="60dp"
                 android:src="@drawable/parcours"
                 android:layout_marginLeft="65dp"
 
@@ -118,19 +118,77 @@
                     />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/line3"
+                android:id="@+id/line4"
+                android:layout_centerInParent="true">
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Activité : "
+                    android:textSize="20sp"
+                    android:fontFamily="cursive"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    />
+                <TextView
+                    android:id="@+id/nom_activite"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="nom_activité"
+                    android:textSize="20sp"
+                    android:fontFamily="cursive"
+                    android:layout_centerInParent="true"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/line4"
+                android:id="@+id/line5"
+                android:layout_centerInParent="true">
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Structure : "
+                    android:textSize="20sp"
+                    android:fontFamily="cursive"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    />
+                <TextView
+                    android:id="@+id/nom_structure"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="nom_structure"
+                    android:textSize="20sp"
+                    android:fontFamily="cursive"
+                    android:layout_centerInParent="true"
+                    />
+            </LinearLayout>
+
             <Button
                 android:layout_centerInParent="true"
                 android:layout_below="@+id/line3"
                 android:id="@+id/button_detail_seance"
                 android:layout_width="250dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="70dp"
                 android:background="@drawable/design_button"
                 android:text="Modifier"
                 android:textColor="#FFF"
                 android:textSize="16dp"
-                android:textStyle="bold"
-                android:layout_marginBottom="15dp"/>
+                android:layout_marginBottom="5dp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
     </LinearLayout>

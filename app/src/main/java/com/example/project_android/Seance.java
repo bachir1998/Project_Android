@@ -6,13 +6,33 @@ public class Seance
     public  String heure_debut;
     public String Heure_fin;
     public  int image;
+    public  Structure structure;
+    public Activity activity;
 
 
-    public Seance(String date, String heure_debut, String heure_fin, int image) {
+    public Seance(String date, String heure_debut, String heure_fin, int image,Activity activity,Structure structure) {
+        this.activity = activity;
+        this.structure = structure;
         this.date = date;
         this.heure_debut = heure_debut;
         Heure_fin = heure_fin;
         this.image = image;
+    }
+
+    public Structure getStructure() {
+        return structure;
+    }
+
+    public void setStructure(Structure structure) {
+        this.structure = structure;
+    }
+
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
     }
 
     public int getImage() {

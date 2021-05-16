@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imagepers"
         android:layout_width="500dp"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:src="@drawable/doctor"/>
 
     <TextView
@@ -27,7 +27,8 @@
         android:fontFamily="cursive"
         android:layout_height="45dp"
         android:background="@drawable/border"
-        android:text="Prenom"
+        android:hint="Prenom"
+        android:textColorHint="#0d6e6a"
         android:textColor="#0d6e6a"
         android:textStyle="bold"
         android:textSize="18dp"
@@ -39,7 +40,8 @@
         android:fontFamily="cursive"
         android:layout_height="45dp"
         android:background="@drawable/border"
-        android:text="Nom"
+        android:hint="Nom"
+        android:textColorHint="#0d6e6a"
         android:textColor="#0d6e6a"
         android:textStyle="bold"
         android:textSize="18dp"
@@ -53,7 +55,8 @@
         android:fontFamily="cursive"
         android:layout_height="45dp"
         android:background="@drawable/border"
-        android:text="Email"
+        android:hint="Email"
+        android:textColorHint="#0d6e6a"
         android:textColor="#0d6e6a"
         android:textStyle="bold"
         android:textSize="18dp"
@@ -65,7 +68,8 @@
         android:layout_width="350dp"
         android:layout_height="45dp"
         android:background="@drawable/border"
-        android:text="Password"
+        android:hint="Password"
+        android:textColorHint="#0d6e6a"
         android:textColor="#0d6e6a"
         android:textStyle="bold"
         android:textSize="18dp"
@@ -80,26 +84,59 @@
         android:enabled="false"
         android:layout_height="45dp"
         android:background="@drawable/border"
-        android:text="Spécialité"
+        android:hint="Spécialité"
+        android:textColorHint="#0d6e6a"
         android:textColor="#0d6e6a"
         android:textStyle="bold"
         android:textSize="18dp"
         android:fontFamily="cursive"
         android:layout_marginTop="20dp"
         android:paddingLeft="20dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textchoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="Choisir un médecin : "
+            android:layout_marginLeft="90dp"
+            android:fontFamily="cursive"
+            android:textColor="#0d6e6a"
+            android:layout_marginTop="10dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:letterSpacing="0.03"/>
+        <Spinner
+            android:visibility="gone"
+            android:id="@+id/choice_patient"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:entries="@array/Spinner_items"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="0.4">
+        </Spinner>
+
+
+    </LinearLayout>
+
+
 
     <Button
         android:id="@+id/register_pers"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/design_button"
         android:text="Register"
         android:textColor="#FFF"
         android:textSize="18dp"
         android:textStyle="bold" />
 
-    <TextView
+   <!-- <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="La santé avant tout"
@@ -108,7 +145,7 @@
         android:textStyle="bold"
         android:textSize="20dp"
         android:layout_marginBottom="100dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"/>-->
 
    <!-- <Button
         android:id="@+id/login_doc"

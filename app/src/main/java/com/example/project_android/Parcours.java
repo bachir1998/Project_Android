@@ -6,12 +6,32 @@ public class Parcours
     public String description;
     public String categorie;
     public int image;
+    public Patient patient;
+    public Intervenant intervenant;
 
-    public Parcours(String titre, String description, String categorie, int image) {
+    public Parcours(String titre, String description, String categorie, int image, Patient patient,Intervenant intervenant) {
+        this.intervenant = intervenant;
+        this.patient = patient;
         this.titre = titre;
         this.description = description;
         this.categorie = categorie;
         this.image = image;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Intervenant getIntervenant() {
+        return intervenant;
+    }
+
+    public void setIntervenant(Intervenant intervenant) {
+        this.intervenant = intervenant;
     }
 
     public int getImage() {

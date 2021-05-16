@@ -51,10 +51,17 @@ public class SeanceActivity extends AppCompatActivity {
         mLayoutManager=new GridLayoutManager(this,1, GridLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+
+        Structure structure1 = new Structure("structure_1","discipline_1","pneumonie");
+        Structure structure2 = new Structure("structure_2","discipline_2","diabète");
+        Structure structure3 = new Structure("structure_3","discipline_3","paralysie");
+        Activity activity1 = new Activity("Titre1","bim","2 mois",R.drawable.activity);
+        Activity activity2 = new Activity("Titre2","bim","3 mois",R.drawable.activity);
+        Activity activity3 = new Activity("Titre3","bim","1 h",R.drawable.activity);
         seances = new ArrayList<>();
-        seances.add(new Seance("le 11/02/1998","12 : 00","12 : 30",R.drawable.activity));
-        seances.add(new Seance("le 16/02/1998","15 : 00","16 : 30",R.drawable.activity));
-        seances.add(new Seance("le 21/02/1998","16 : 00","16 : 30",R.drawable.activity));
+        seances.add(new Seance("le 11/02/1998","12 : 00","12 : 30",R.drawable.activity,activity1,structure1));
+        seances.add(new Seance("le 16/02/1998","15 : 00","16 : 30",R.drawable.activity,activity2,structure2));
+        seances.add(new Seance("le 21/02/1998","16 : 00","16 : 30",R.drawable.activity,activity3,structure3));
         
         mAdapterSeance = new Recyclerview_Seance(seances);
         mRecyclerView.setAdapter(mAdapterSeance);

@@ -35,6 +35,10 @@ public class Recyclerview_Parcours extends RecyclerView.Adapter<Recyclerview_Par
         holder.description.setText(parcours.get(position).getDescription());
         holder.categorie.setText(parcours.get(position).getCategorie());
         holder.imageView.setImageResource(parcours.get(position).getImage());
+        holder.patient.setText(parcours.get(position).getPatient().getPrenom()+" "+parcours.get(position).getPatient().nom);
+        holder.intervenant.setText(parcours.get(position).getIntervenant().getPrenom()+" "+parcours.get(position).getIntervenant().nom);
+
+
 
 
     }
@@ -49,6 +53,8 @@ public class Recyclerview_Parcours extends RecyclerView.Adapter<Recyclerview_Par
         TextView description;
         TextView categorie;
         ImageView imageView;
+        TextView patient;
+        TextView intervenant;
         Button btn;
 
         public ConteneurDeDonnee(View itemView) {
@@ -57,6 +63,8 @@ public class Recyclerview_Parcours extends RecyclerView.Adapter<Recyclerview_Par
             description= (TextView) itemView.findViewById(R.id.description_parcours);
             categorie= (TextView) itemView.findViewById(R.id.categorie_parcours);
             imageView =  itemView.findViewById(R.id.img_parcours);
+            patient = itemView.findViewById(R.id.id_Patient);
+            intervenant = itemView.findViewById(R.id.id_Intervenant);
             btn = itemView.findViewById(R.id.button_detail);
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override

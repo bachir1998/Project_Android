@@ -10,27 +10,27 @@
     <ImageView
         android:id="@+id/image_connect"
         android:layout_width="500dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/parcours"/>
 
-    <TextView
+   <!-- <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create new seance"
         android:textColor="#0d6e6a"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textStyle="bold"
-        android:letterSpacing="0.03"/>
+        android:letterSpacing="0.03"/>-->
 
     <TextView
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
         android:text="Choisissez une date: "
         android:textColor="#0d6e6a"
-        android:textSize="30dp"
+        android:textSize="18dp"
         android:letterSpacing="0.03"/>
     <TextView
         android:layout_marginTop="5dp"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/newdate"
         android:hint="SelectTime"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:textStyle="bold"
         android:gravity="center"
         android:drawableTop="@drawable/ic_date"
@@ -53,7 +53,7 @@
         android:text="Choisir heure de début: "
         android:fontFamily="cursive"
         android:textColor="#0d6e6a"
-        android:textSize="30dp"
+        android:textSize="18dp"
         android:letterSpacing="0.03"/>
     <TextView
         android:layout_marginTop="5dp"
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/heuredeb"
         android:hint="SelectTime"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:textStyle="bold"
         android:gravity="center"
         android:drawableTop="@drawable/ic_time"
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:text="Choisir heure de début: "
         android:textColor="#0d6e6a"
-        android:textSize="30dp"
+        android:textSize="18dp"
         android:letterSpacing="0.03"/>
     <TextView
         android:layout_marginTop="5dp"
@@ -84,13 +84,66 @@
         android:layout_height="wrap_content"
         android:id="@+id/heurefin"
         android:hint="SelectTime"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:textStyle="bold"
         android:gravity="center"
         android:drawableTop="@drawable/ic_time"
         android:drawablePadding="16dp"
 
         />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choisir une activité : "
+            android:layout_marginLeft="90dp"
+            android:fontFamily="cursive"
+            android:textColor="#0d6e6a"
+            android:layout_marginTop="7dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:letterSpacing="0.03"/>
+        <Spinner
+            android:entries="@array/Spinner_item_activity"
+            android:id="@+id/choisir_activity"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="0.4">
+        </Spinner>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choisir une structure : "
+            android:layout_marginLeft="90dp"
+            android:fontFamily="cursive"
+            android:textColor="#0d6e6a"
+            android:layout_marginTop="7dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:letterSpacing="0.03"/>
+        <Spinner
+            android:entries="@array/Spinner_item_structure"
+            android:id="@+id/choisir_strucure"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="0.4">
+        </Spinner>
+    </LinearLayout>
 
 
 
@@ -104,8 +157,8 @@
         android:textSize="18dp"
         android:textStyle="bold"
         android:textColor="#FFF"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="25dp"/>
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="7dp"/>
 
 
 

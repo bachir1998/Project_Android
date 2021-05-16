@@ -7,11 +7,14 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -20,9 +23,10 @@ import java.util.Calendar;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-public class Fragment_seance extends DialogFragment
+public class Fragment_seance extends DialogFragment implements AdapterView.OnItemSelectedListener
 {
     private TextView textdate, textheuredeb, textheurefin;
+    private Spinner spinner_activity, spinner_structure;
     DatePickerDialog.OnDateSetListener setListener;
     int heure1,minute1;
     int heure2,minute2;
@@ -59,6 +63,10 @@ public class Fragment_seance extends DialogFragment
         textdate = view.findViewById(R.id.newdate);
         textheuredeb = view.findViewById(R.id.heuredeb);
         textheurefin = view.findViewById(R.id.heurefin);
+        spinner_activity = view.findViewById(R.id.choisir_activity);
+        spinner_structure = view.findViewById(R.id.choisir_strucure);
+        spinner_activity.setOnItemSelectedListener(this);
+        spinner_structure.setOnItemSelectedListener(this);
 
 
 
@@ -160,5 +168,13 @@ public class Fragment_seance extends DialogFragment
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        Toast.makeText(getContext(),adapterView.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }

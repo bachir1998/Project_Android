@@ -5,20 +5,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 
-public class Fragment_Register extends DialogFragment
+public class Fragment_Register extends DialogFragment implements AdapterView.OnItemSelectedListener
 {
-    private EditText prenom, nom, email,password,specialite;
+    private EditText prenom, nom, email,password,specialite,age;
+    private TextView  textchoice;
     private ImageView imageView;
     private Button register;
     Fragment_Register_Listener fragment_register_listener;
+    private Spinner spinner;
 
     public Fragment_Register() {
         // le fragment est créé par la méthode newInstance
@@ -58,9 +64,15 @@ public class Fragment_Register extends DialogFragment
         prenom = view.findViewById(R.id.prenom_pers);
         nom = view.findViewById(R.id.nom_pers);
 
+        spinner = view.findViewById(R.id.choice_patient);
+        textchoice = view.findViewById(R.id.textchoice);
+
 
         if(GlobalVariables.persRoleInscrip == 0)
         {
+
+            textchoice.setVisibility(View.GONE);
+            spinner.setVisibility(View.GONE);
             specialite.setText("Medecin");
             imageView.setImageResource(R.drawable.doctor);
 
@@ -68,13 +80,20 @@ public class Fragment_Register extends DialogFragment
 
         if(GlobalVariables.persRoleInscrip==2)
         {
+
+            textchoice.setVisibility(View.VISIBLE);
+            spinner.setVisibility(View.VISIBLE);
             specialite.setText("Patient");
             imageView.setImageResource(R.drawable.patient);
+            spinner.setOnItemSelectedListener(this);
 
 
         }
         if(GlobalVariables.persRoleInscrip==1)
         {
+
+            textchoice.setVisibility(View.GONE);
+            spinner.setVisibility(View.GONE);
             specialite.setText("Intervenant");
             imageView.setImageResource(R.drawable.intervenant);
 
@@ -121,5 +140,13 @@ public class Fragment_Register extends DialogFragment
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        Toast.makeText(getContext(),adapterView.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }

@@ -68,9 +68,15 @@ public class EspacePersonnel extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         parcours = new ArrayList<>();
-        parcours.add(new Parcours("Parcours1","bim","bam",R.drawable.parcours));
-        parcours.add(new Parcours("Parcours2","bim","bam",R.drawable.parcours));
-        parcours.add(new Parcours("Parcours3","bim","bam",R.drawable.parcours));
+        Patient patient1 = new Patient("Gueye","Bachir","basse","gueyebachir98@gmail.com","patient");
+        Intervenant intervenant1 = new Intervenant("Flora","Diane","basse","gueyebachir98@gmail.com","intervenant");
+        Patient patient2 = new Patient("Sidibé","Kadiatou","basse","gueyebachir98@gmail.com","patient");
+        Intervenant intervenant2 = new Intervenant("Haidara","Fatimetou","basse","gueyebachir98@gmail.com","intervenant");
+        Patient patient3 = new Patient("Allegou","Bachi","basse","gueyebachir98@gmail.com","patient");
+        Intervenant intervenant3 = new Intervenant("Aghillas","Aimad","basse","gueyebachir98@gmail.com","intervenant");
+        parcours.add(new Parcours("Parcours1","bim","bam",R.drawable.parcours,patient1,intervenant1));
+        parcours.add(new Parcours("Parcours2","bim","bam",R.drawable.parcours,patient2,intervenant2));
+        parcours.add(new Parcours("Parcours3","bim","bam",R.drawable.parcours,patient3,intervenant3));
 
 
         mAdapterParcours = new Recyclerview_Parcours(parcours);
@@ -95,6 +101,11 @@ public class EspacePersonnel extends AppCompatActivity {
                 {
                   PageSeance();
 
+                }
+
+                if(id==R.id.logout)
+                {
+                    PageAccueil();
                 }
                 return true;
             }
@@ -137,15 +148,15 @@ public class EspacePersonnel extends AppCompatActivity {
             item_seance.setVisible(false);
             item_statistique.setVisible(true);
             item_logout.setVisible(true);
-               nom_prenom.setText(GlobalVariables.prenom+" "+GlobalVariables.nom);
-                recup_email.setText(GlobalVariables.email);
-                  imageProfil.setImageResource(R.drawable.doctor);
+            nom_prenom.setText(GlobalVariables.prenom+" "+GlobalVariables.nom);
+            recup_email.setText(GlobalVariables.email);
+            imageProfil.setImageResource(R.drawable.doctor);
 
 
         }
         if(GlobalVariables.persRoleInscrip==2 ||  GlobalVariables.persRoleConnect==2)
         {
-            item_parcours.setVisible(true);
+            item_parcours.setVisible(false);
             item_parcours.setTitle("Mon parcours");
             item_seance.setVisible(false);
             item_statistique.setVisible(true);
@@ -157,8 +168,8 @@ public class EspacePersonnel extends AppCompatActivity {
         }
         if(GlobalVariables.persRoleInscrip==1 ||  GlobalVariables.persRoleConnect==1)
         {
-            item_parcours.setVisible(true);
-            item_parcours.setTitle("Définir parcours");
+            item_parcours.setVisible(false);
+            //item_parcours.setTitle("Définir parcours");
             item_seance.setVisible(true);
             item_statistique.setVisible(true);
             item_logout.setVisible(true);
@@ -173,10 +184,15 @@ public class EspacePersonnel extends AppCompatActivity {
         return true;
     }
 
-
     public void PageSeance()
     {
         Intent intent = new Intent(this,SeanceActivity.class);
+        startActivity(intent);
+    }
+
+    public void PageAccueil()
+    {
+        Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
 
