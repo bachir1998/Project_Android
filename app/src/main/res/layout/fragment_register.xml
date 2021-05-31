@@ -114,7 +114,6 @@
             android:id="@+id/choice_patient"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:entries="@array/Spinner_items"
             android:layout_marginBottom="15dp"
             android:layout_weight="0.4">
         </Spinner>
@@ -126,12 +125,37 @@
 
     <Button
         android:id="@+id/register_pers"
+        android:visibility="gone"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/design_button"
-        android:text="Register"
+        android:text="Register Medecin"
+        android:textColor="#FFF"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+    <Button
+        android:visibility="gone"
+        android:id="@+id/register_pers_int"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/design_button"
+        android:text="Register Intervenant"
+        android:textColor="#FFF"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+    <Button
+        android:visibility="gone"
+        android:id="@+id/register_pers_pat"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/design_button"
+        android:text="Register Patient"
         android:textColor="#FFF"
         android:textSize="18dp"
         android:textStyle="bold" />

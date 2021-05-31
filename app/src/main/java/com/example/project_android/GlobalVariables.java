@@ -15,5 +15,7 @@ public  class GlobalVariables {
     public static String email_connect;
     public static String password_connect;
 
+    public static String uidMed;
+
 
 }

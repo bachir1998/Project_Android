@@ -15,8 +15,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +37,11 @@ public class EspacePersonnel extends AppCompatActivity {
     private TextView recup_email;
     private ImageView imageProfil;
     private NavigationView navigationView;
+
+    private FirebaseUser user;
+    private DatabaseReference databaseReferenceMed,databaseReferenceInt,databaseReferencePat;
+    private String userid;
+    public String usermed;
 
 
     //pour la liste des parcours
@@ -46,6 +59,17 @@ public class EspacePersonnel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_espace_personnel);
 
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReferenceMed = FirebaseDatabase.getInstance().getReference().child("Users").child("Medecins");
+        databaseReferenceInt = FirebaseDatabase.getInstance().getReference().child("Users").child("Intervenants");
+        databaseReferencePat = FirebaseDatabase.getInstance().getReference().child("Users").child("Medecins").child("Patients");
+        userid = user.getUid();
+
+
+
+
+        //Complément du drawer
         drawerLayout = findViewById(R.id.drawer);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.ouvrir,R.string.fermer);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -59,15 +83,46 @@ public class EspacePersonnel extends AppCompatActivity {
         imageProfil = (ImageView) headerLayout.findViewById(R.id.imageProfil);
 
 
-
-        // Pour l'affichage de la liste des parcours
+        //Pour l'affichage de la liste des parcours
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         //mLayoutManager = new LinearLayoutManager(this);
         mLayoutManager=new GridLayoutManager(this,1, GridLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
-
         parcours = new ArrayList<>();
+
+
+
+
+        databaseReferenceMed.child(userid).child("Parcours").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren())
+                {
+                     parcours.add(new Parcours(snapshot.child("categorie").getValue().toString(),
+                             snapshot.child("description").getValue().toString(),
+                             snapshot.child("intervenant").getValue().toString(),
+                             snapshot.child("patient").getValue().toString(),
+                             snapshot.child("titre").getValue().toString()));
+
+
+                }
+
+                mAdapterParcours = new Recyclerview_Parcours(parcours);
+                mRecyclerView.setAdapter(mAdapterParcours);
+
+               // mAdapterParcours.notifyDataSetChanged();
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+     /*
         Patient patient1 = new Patient("Gueye","Bachir","basse","gueyebachir98@gmail.com","patient");
         Intervenant intervenant1 = new Intervenant("Flora","Diane","basse","gueyebachir98@gmail.com","intervenant");
         Patient patient2 = new Patient("Sidibé","Kadiatou","basse","gueyebachir98@gmail.com","patient");
@@ -79,8 +134,7 @@ public class EspacePersonnel extends AppCompatActivity {
         parcours.add(new Parcours("Parcours3","bim","bam",R.drawable.parcours,patient3,intervenant3));
 
 
-        mAdapterParcours = new Recyclerview_Parcours(parcours);
-        mRecyclerView.setAdapter(mAdapterParcours);
+       */
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -89,7 +143,7 @@ public class EspacePersonnel extends AppCompatActivity {
                 int id = item.getItemId();
                 if(id == R.id.parcours)
                 {
-                    if(GlobalVariables.persRoleInscrip==0 || GlobalVariables.persRoleInscrip==1 || GlobalVariables.persRoleConnect==0 ||GlobalVariables.persRoleConnect==1)
+                    if(GlobalVariables.persRoleInscrip==0  || GlobalVariables.persRoleConnect==0 )
                     {
                         FragmentManager fm = getSupportFragmentManager();
                         Fragment_parcours register = Fragment_parcours.newInstance("parcours");
@@ -105,7 +159,10 @@ public class EspacePersonnel extends AppCompatActivity {
 
                 if(id==R.id.logout)
                 {
-                    PageAccueil();
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(EspacePersonnel.this,MainActivity.class));
+                    finish();
+                   // PageAccueil();
                 }
                 return true;
             }
@@ -148,9 +205,33 @@ public class EspacePersonnel extends AppCompatActivity {
             item_seance.setVisible(false);
             item_statistique.setVisible(true);
             item_logout.setVisible(true);
-            nom_prenom.setText(GlobalVariables.prenom+" "+GlobalVariables.nom);
-            recup_email.setText(GlobalVariables.email);
+           // nom_prenom.setText(GlobalVariables.prenom+" "+GlobalVariables.nom);
+            //recup_email.setText(GlobalVariables.email);
             imageProfil.setImageResource(R.drawable.doctor);
+            databaseReferenceMed.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Personne personne = snapshot.getValue(Personne.class);
+
+                    if(personne!=null)
+                    {
+                        String prenom = personne.prenom;
+                        String nom = personne.nom;
+                        String email = personne.email;
+
+                        nom_prenom.setText(prenom+" "+nom);
+                        recup_email.setText(email);
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                    Toast.makeText(EspacePersonnel.this,"Something wrong happened",Toast.LENGTH_LONG).show();
+
+                }
+            });
 
 
         }
@@ -161,9 +242,36 @@ public class EspacePersonnel extends AppCompatActivity {
             item_seance.setVisible(false);
             item_statistique.setVisible(true);
             item_logout.setVisible(true);
-            nom_prenom.setText(GlobalVariables.prenom+" "+GlobalVariables.nom);
-            recup_email.setText(GlobalVariables.email);
             imageProfil.setImageResource(R.drawable.patient);
+            databaseReferencePat.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Personne personne = snapshot.getValue(Personne.class);
+
+                    if(personne!=null)
+                    {
+                        String prenom = personne.prenom;
+                        String nom = personne.nom;
+                        String email = personne.email;
+
+                        nom_prenom.setText(prenom+" "+nom);
+                        recup_email.setText(email);
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                    Toast.makeText(EspacePersonnel.this,"Something wrong happened",Toast.LENGTH_LONG).show();
+
+                }
+            });
+
+            parcours.add(new Parcours("categorie","description1","intervenant1","patient1","titre1"));
+            parcours.add(new Parcours("categorie","description1","intervenant1","patient1","titre1"));
+            mAdapterParcours = new Recyclerview_Parcours(parcours);
+            mRecyclerView.setAdapter(mAdapterParcours);
 
         }
         if(GlobalVariables.persRoleInscrip==1 ||  GlobalVariables.persRoleConnect==1)
@@ -173,9 +281,36 @@ public class EspacePersonnel extends AppCompatActivity {
             item_seance.setVisible(true);
             item_statistique.setVisible(true);
             item_logout.setVisible(true);
-            nom_prenom.setText(GlobalVariables.prenom+" "+GlobalVariables.nom);
             imageProfil.setImageResource(R.drawable.intervenant);
-            recup_email.setText(GlobalVariables.email);
+            databaseReferenceInt.child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Personne personne = snapshot.getValue(Personne.class);
+
+                    if(personne!=null)
+                    {
+                        String prenom = personne.prenom;
+                        String nom = personne.nom;
+                        String email = personne.email;
+
+                        nom_prenom.setText(prenom+" "+nom);
+                        recup_email.setText(email);
+
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                    Toast.makeText(EspacePersonnel.this,"Something wrong happened",Toast.LENGTH_LONG).show();
+
+                }
+            });
+
+            parcours.add(new Parcours("categorie","description1","intervenant1","patient1","titre1"));
+            parcours.add(new Parcours("categorie","description1","intervenant1","patient1","titre1"));
+            mAdapterParcours = new Recyclerview_Parcours(parcours);
+            mRecyclerView.setAdapter(mAdapterParcours);
 
         }
 

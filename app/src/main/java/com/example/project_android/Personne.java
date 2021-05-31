@@ -7,14 +7,20 @@ public class Personne
     public String password;
     public String email;
     public String specialite;
+    public String UID;
 
 
-    public Personne(String nom, String prenom, String password, String email, String specialite) {
+    public Personne( String email, String password,String prenom, String nom, String specialite) {
         this.nom = nom;
         this.prenom = prenom;
         this.password = password;
         this.email = email;
         this.specialite = specialite;
+    }
+
+    public Personne()
+    {
+
     }
 
     public String getNom() {

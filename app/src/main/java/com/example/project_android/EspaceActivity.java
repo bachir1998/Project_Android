@@ -28,8 +28,15 @@ public class EspaceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_espace_activity);
-
         floatingActionButton = findViewById(R.id.fab);
+
+        if(GlobalVariables.persRoleConnect==2 ||GlobalVariables.persRoleInscrip==2)
+        {
+            floatingActionButton.setVisibility(View.GONE);
+
+
+        }
+
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

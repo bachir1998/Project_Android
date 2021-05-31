@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="350dp"
-    android:layout_height="300dp"
+    android:layout_width="375dp"
+    android:layout_height="350dp"
     android:layout_gravity="center"
     app:cardCornerRadius="5dp"
     android:layout_margin="5dp"
@@ -17,9 +17,10 @@
         android:orientation="vertical">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
-                <ImageView
+               <ImageView
                     android:id="@+id/img_parcours"
                     android:layout_marginTop="6dp"
                     android:layout_width="200dp"
@@ -31,18 +32,21 @@
 
 
             <LinearLayout
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/line1"
                 android:layout_below="@id/img_parcours"
-                android:layout_centerInParent="true">
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_margin="8dp"
+                android:id="@+id/line1"
+               >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Titre : "
                     android:layout_marginTop="5dp"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:fontFamily="cursive"
                     android:textStyle="bold"
                     android:layout_centerInParent="true"
@@ -53,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="nom_parcours"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:fontFamily="cursive"
                     android:layout_centerInParent="true"
                     />
@@ -65,13 +69,14 @@
                 android:orientation="horizontal"
                 android:layout_below="@id/line1"
                 android:id="@+id/line2"
-                android:layout_centerInParent="true">
+                android:layout_margin="8dp"
+             >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Categorie : "
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:fontFamily="cursive"
                     android:textStyle="bold"
                     android:layout_centerInParent="true"
@@ -82,7 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="nom_categorie"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:fontFamily="cursive"
                     android:layout_centerInParent="true"
                     />
@@ -94,13 +99,14 @@
                 android:orientation="horizontal"
                 android:layout_below="@id/line2"
                 android:id="@+id/line3"
-                android:layout_centerInParent="true">
+                android:layout_margin="8dp"
+              >
                 <TextView
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Description : "
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:fontFamily="cursive"
                     android:textStyle="bold"
                     android:layout_centerInParent="true"
@@ -111,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="nom_description"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:fontFamily="cursive"
 
                     android:layout_centerInParent="true"
@@ -124,13 +130,14 @@
                 android:orientation="horizontal"
                 android:layout_below="@id/line3"
                 android:id="@+id/line4"
-                android:layout_centerInParent="true">
+                android:layout_margin="8dp"
+                >
                 <TextView
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Patient : "
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:fontFamily="cursive"
                     android:textStyle="bold"
                     android:layout_centerInParent="true"
@@ -141,7 +148,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Patient1"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:fontFamily="cursive"
                     android:layout_centerInParent="true"
                     />
@@ -153,13 +160,14 @@
                 android:orientation="horizontal"
                 android:layout_below="@id/line4"
                 android:id="@+id/line5"
-                android:layout_centerInParent="true">
+                android:layout_margin="8dp"
+                >
                 <TextView
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Intervenant : "
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:fontFamily="cursive"
                     android:textStyle="bold"
                     android:layout_centerInParent="true"
@@ -170,9 +178,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Intervenant"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:fontFamily="cursive"
                     android:layout_centerInParent="true"
+                    android:layout_marginBottom="5dp"
                     />
             </LinearLayout>
 
@@ -180,9 +189,9 @@
                 android:layout_centerInParent="true"
                 android:layout_below="@+id/line3"
                 android:id="@+id/button_detail"
-                android:layout_width="250dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="65dp"
+                android:layout_marginTop="90dp"
                 android:background="@drawable/design_button"
                 android:text="Plus de details"
                 android:textColor="#FFF"
